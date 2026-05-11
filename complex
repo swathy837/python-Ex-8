@@ -1,0 +1,41 @@
+class ComplexNumber:
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+    # Overloading the + operator
+    def __add__(self, other):
+        return ComplexNumber(self.real + other.real, self.imag + other.imag)
+
+    # Overloading the - operator
+    def __sub__(self, other):
+        return ComplexNumber(self.real - other.real, self.imag - other.imag)
+
+    # Display logic without using f-strings
+    def display(self):
+        sign = "+" if self.imag >= 0 else "-"
+        print(self.real, sign, abs(self.imag), "i")
+
+# Getting user input
+print("Enter First Complex Number:")
+r1 = float(input("Real part: "))
+i1 = float(input("Imaginary part: "))
+
+print("Enter Second Complex Number:")
+r2 = float(input("Real part: "))
+i2 = float(input("Imaginary part: "))
+
+# Creating objects
+num1 = ComplexNumber(r1, i1)
+num2 = ComplexNumber(r2, i2)
+
+# Performing operations
+sum_res = num1 + num2
+diff_res = num1 - num2
+
+# Output results
+print("Sum:")
+sum_res.display()
+
+print("Difference:")
+diff_res.display()
